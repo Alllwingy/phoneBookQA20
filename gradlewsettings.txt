@@ -1,0 +1,9 @@
+./gradlew test
+./gradlew clean test
+./gradlew clean loginTests
+./gradlew clean -Pbrowser=firefox loginTests
+./gradlew clean -Pbrowser=chrome loginTests
+./gradlew clean -Pbrowser=firefox -Dsuite=login shorttests
+./gradlew clean -Dgroups=smoke shorttests
+./gradlew clean -Dgroups=regression -Ptarget=fake shorttests
+./gradlew clean -Dgroups=regression -Ptarget=prod shorttests

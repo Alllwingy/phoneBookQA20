@@ -1,0 +1,122 @@
+2023-10-27 08:08:38,640 INFO m.AppleManager [AppleManager.java:36] CHROME driver
+2023-10-27 08:08:39,475 INFO m.AppleManager [AppleManager.java:45] open: https://telranedu.web.app/home Start testing: 
+2023-10-27 08:08:39,611 INFO m.TestNGListener [TestNGListener.java:61] start test - onstart - : Gradle test
+2023-10-27 08:08:39,628 INFO m.AppleManager [BaseHelper.java:26] findElementBy locator: By.xpath: //*[@href='/login']
+2023-10-27 08:08:39,701 INFO t.BaseTests [BaseTests.java:59] __________________________________________________________________________
+2023-10-27 08:08:39,702 INFO t.BaseTests [BaseTests.java:60] started method: negative_UserDTOLombok_EmptyEmail with parameters: [java.lang.reflect.Method arg0]
+2023-10-27 08:08:39,702 INFO m.TestNGListener [TestNGListener.java:19] started test: negative_UserDTOLombok_EmptyEmail
+2023-10-27 08:08:39,703 INFO t.BaseTests [LoginTests.java:89] in method: negative_UserDTOLombok_EmptyEmail fill email input field with:  and password input field with: Task$12345 and click button Login
+2023-10-27 08:08:39,703 INFO m.AppleManager [BaseHelper.java:26] findElementBy locator: By.xpath: //input[@name='email']
+2023-10-27 08:08:39,831 INFO m.AppleManager [BaseHelper.java:26] findElementBy locator: By.xpath: //input[@name='password']
+2023-10-27 08:08:39,937 INFO m.AppleManager [BaseHelper.java:26] findElementBy locator: By.xpath: //button[@name='login']
+2023-10-27 08:08:41,658 INFO m.TestNGListener [TestNGListener.java:25] test success: negative_UserDTOLombok_EmptyEmail
+2023-10-27 08:08:41,664 INFO t.BaseTests [BaseTests.java:66] stopped method: negative_UserDTOLombok_EmptyEmail, with parameters: [java.lang.reflect.Method arg0]
+2023-10-27 08:08:41,667 INFO t.BaseTests [BaseTests.java:59] __________________________________________________________________________
+2023-10-27 08:08:41,668 INFO t.BaseTests [BaseTests.java:60] started method: negative_UserDTOLombok_EmptyPassword with parameters: [java.lang.reflect.Method arg0]
+2023-10-27 08:08:41,669 INFO m.TestNGListener [TestNGListener.java:19] started test: negative_UserDTOLombok_EmptyPassword
+2023-10-27 08:08:41,669 INFO t.BaseTests [LoginTests.java:119] in method: negative_UserDTOLombok_EmptyPassword fill email input field with: document@gmail.com and password input field with:  and click button Login
+2023-10-27 08:08:41,669 INFO m.AppleManager [BaseHelper.java:26] findElementBy locator: By.xpath: //input[@name='email']
+2023-10-27 08:08:41,777 INFO m.AppleManager [BaseHelper.java:26] findElementBy locator: By.xpath: //input[@name='password']
+2023-10-27 08:08:41,891 INFO m.AppleManager [BaseHelper.java:26] findElementBy locator: By.xpath: //button[@name='login']
+2023-10-27 08:08:42,553 INFO m.TestNGListener [TestNGListener.java:25] test success: negative_UserDTOLombok_EmptyPassword
+2023-10-27 08:08:42,566 INFO t.BaseTests [BaseTests.java:66] stopped method: negative_UserDTOLombok_EmptyPassword, with parameters: [java.lang.reflect.Method arg0]
+2023-10-27 08:08:42,567 INFO t.BaseTests [BaseTests.java:59] __________________________________________________________________________
+2023-10-27 08:08:42,568 INFO t.BaseTests [BaseTests.java:60] started method: negative_UserDTOLombok_WrongEmail with parameters: [java.lang.reflect.Method arg0]
+2023-10-27 08:08:42,568 INFO m.TestNGListener [TestNGListener.java:19] started test: negative_UserDTOLombok_WrongEmail
+2023-10-27 08:08:42,568 INFO t.BaseTests [LoginTests.java:74] in method: negative_UserDTOLombok_WrongEmail fill email input field with: winnergmail.com and password input field with: Task$12345 and click button Login
+2023-10-27 08:08:42,568 INFO m.AppleManager [BaseHelper.java:26] findElementBy locator: By.xpath: //input[@name='email']
+2023-10-27 08:08:42,704 INFO m.AppleManager [BaseHelper.java:26] findElementBy locator: By.xpath: //input[@name='password']
+2023-10-27 08:08:42,837 INFO m.AppleManager [BaseHelper.java:26] findElementBy locator: By.xpath: //button[@name='login']
+2023-10-27 08:08:43,488 INFO m.TestNGListener [TestNGListener.java:25] test success: negative_UserDTOLombok_WrongEmail
+2023-10-27 08:08:43,500 INFO t.BaseTests [BaseTests.java:66] stopped method: negative_UserDTOLombok_WrongEmail, with parameters: [java.lang.reflect.Method arg0]
+2023-10-27 08:08:43,503 INFO t.BaseTests [BaseTests.java:59] __________________________________________________________________________
+2023-10-27 08:08:43,503 INFO t.BaseTests [BaseTests.java:60] started method: negative_UserDTOLombok_WrongPassword with parameters: [java.lang.reflect.Method arg0]
+2023-10-27 08:08:43,503 INFO m.TestNGListener [TestNGListener.java:19] started test: negative_UserDTOLombok_WrongPassword
+2023-10-27 08:08:43,503 INFO t.BaseTests [LoginTests.java:104] in method: negative_UserDTOLombok_WrongPassword fill email input field with: document@gmail.com and password input field with: Test and click button Login
+2023-10-27 08:08:43,503 INFO m.AppleManager [BaseHelper.java:26] findElementBy locator: By.xpath: //input[@name='email']
+2023-10-27 08:08:43,640 INFO m.AppleManager [BaseHelper.java:26] findElementBy locator: By.xpath: //input[@name='password']
+2023-10-27 08:08:43,761 INFO m.AppleManager [BaseHelper.java:26] findElementBy locator: By.xpath: //button[@name='login']
+2023-10-27 08:08:44,432 INFO m.TestNGListener [TestNGListener.java:25] test success: negative_UserDTOLombok_WrongPassword
+2023-10-27 08:08:44,445 INFO t.BaseTests [BaseTests.java:66] stopped method: negative_UserDTOLombok_WrongPassword, with parameters: [java.lang.reflect.Method arg0]
+2023-10-27 08:08:44,447 INFO t.BaseTests [BaseTests.java:59] __________________________________________________________________________
+2023-10-27 08:08:44,447 INFO t.BaseTests [BaseTests.java:60] started method: positive_UserDTO with parameters: [java.lang.reflect.Method arg0]
+2023-10-27 08:08:44,449 INFO m.TestNGListener [TestNGListener.java:19] started test: positive_UserDTO
+2023-10-27 08:08:44,450 INFO t.BaseTests [LoginTests.java:33] in method: positive_UserDTO fill email input field with: document@gmail.com and password input field with: Task$12345 and click button Login
+2023-10-27 08:08:44,450 INFO m.AppleManager [BaseHelper.java:26] findElementBy locator: By.xpath: //input[@name='email']
+2023-10-27 08:08:44,584 INFO m.AppleManager [BaseHelper.java:26] findElementBy locator: By.xpath: //input[@name='password']
+2023-10-27 08:08:44,715 INFO m.AppleManager [BaseHelper.java:26] findElementBy locator: By.xpath: //button[@name='login']
+2023-10-27 08:08:44,859 INFO m.AppleManager [BaseHelper.java:26] findElementBy locator: By.xpath: //a[@href='/contacts']
+2023-10-27 08:08:45,192 INFO m.TestNGListener [TestNGListener.java:25] test success: positive_UserDTO
+2023-10-27 08:08:45,192 INFO m.AppleManager [BaseHelper.java:26] findElementBy locator: By.tagName: button
+2023-10-27 08:08:45,247 INFO t.BaseTests [BaseTests.java:66] stopped method: positive_UserDTO, with parameters: [java.lang.reflect.Method arg0]
+2023-10-27 08:08:45,248 INFO t.BaseTests [BaseTests.java:59] __________________________________________________________________________
+2023-10-27 08:08:45,248 INFO t.BaseTests [BaseTests.java:60] started method: positive_UserDTOLombok with parameters: [java.lang.reflect.Method arg0]
+2023-10-27 08:08:45,248 INFO m.TestNGListener [TestNGListener.java:19] started test: positive_UserDTOLombok
+2023-10-27 08:08:45,248 INFO t.BaseTests [LoginTests.java:59] in method: positive_UserDTOLombok fill email input field with: document@gmail.com and password input field with: Task$12345 and click button Login
+2023-10-27 08:08:45,248 INFO m.AppleManager [BaseHelper.java:26] findElementBy locator: By.xpath: //input[@name='email']
+2023-10-27 08:08:45,381 INFO m.AppleManager [BaseHelper.java:26] findElementBy locator: By.xpath: //input[@name='password']
+2023-10-27 08:08:45,503 INFO m.AppleManager [BaseHelper.java:26] findElementBy locator: By.xpath: //button[@name='login']
+2023-10-27 08:08:45,661 INFO m.AppleManager [BaseHelper.java:26] findElementBy locator: By.xpath: //a[@href='/contacts']
+2023-10-27 08:08:45,995 INFO m.TestNGListener [TestNGListener.java:25] test success: positive_UserDTOLombok
+2023-10-27 08:08:45,996 INFO m.AppleManager [BaseHelper.java:26] findElementBy locator: By.tagName: button
+2023-10-27 08:08:46,039 INFO t.BaseTests [BaseTests.java:66] stopped method: positive_UserDTOLombok, with parameters: [java.lang.reflect.Method arg0]
+2023-10-27 08:08:46,040 INFO t.BaseTests [BaseTests.java:59] __________________________________________________________________________
+2023-10-27 08:08:46,040 INFO t.BaseTests [BaseTests.java:60] started method: positive_UserDTOWith with parameters: [java.lang.reflect.Method arg0]
+2023-10-27 08:08:46,042 INFO m.TestNGListener [TestNGListener.java:19] started test: positive_UserDTOWith
+2023-10-27 08:08:46,042 INFO t.BaseTests [LoginTests.java:46] in method: positive_UserDTOWith fill email input field with: document@gmail.com and password input field with: Task$12345 and click button Login
+2023-10-27 08:08:46,042 INFO m.AppleManager [BaseHelper.java:26] findElementBy locator: By.xpath: //input[@name='email']
+2023-10-27 08:08:46,160 INFO m.AppleManager [BaseHelper.java:26] findElementBy locator: By.xpath: //input[@name='password']
+2023-10-27 08:08:46,258 INFO m.AppleManager [BaseHelper.java:26] findElementBy locator: By.xpath: //button[@name='login']
+2023-10-27 08:08:46,407 INFO m.AppleManager [BaseHelper.java:26] findElementBy locator: By.xpath: //a[@href='/contacts']
+2023-10-27 08:08:46,748 INFO m.TestNGListener [TestNGListener.java:25] test success: positive_UserDTOWith
+2023-10-27 08:08:46,749 INFO m.AppleManager [BaseHelper.java:26] findElementBy locator: By.tagName: button
+2023-10-27 08:08:46,802 INFO t.BaseTests [BaseTests.java:66] stopped method: positive_UserDTOWith, with parameters: [java.lang.reflect.Method arg0]
+2023-10-27 08:08:46,808 INFO t.BaseTests [BaseTests.java:59] __________________________________________________________________________
+2023-10-27 08:08:46,809 INFO t.BaseTests [BaseTests.java:60] started method: negative_UserDTOLombok_EmptyEmail with parameters: [java.lang.reflect.Method arg0]
+2023-10-27 08:08:46,930 INFO m.TestNGListener [TestNGListener.java:19] started test: negative_UserDTOLombok_EmptyEmail
+2023-10-27 08:08:46,931 INFO t.BaseTests [RegistrationTests.java:74] in method: negative_UserDTOLombok_EmptyEmail fill email input field with:  and password input field with: Task$12345 and click button Login
+2023-10-27 08:08:46,931 INFO m.AppleManager [BaseHelper.java:26] findElementBy locator: By.xpath: //input[@name='email']
+2023-10-27 08:08:47,040 INFO m.AppleManager [BaseHelper.java:26] findElementBy locator: By.xpath: //input[@name='password']
+2023-10-27 08:08:47,132 INFO m.AppleManager [BaseHelper.java:26] findElementBy locator: By.xpath: //button[@name='registration']
+2023-10-27 08:08:47,689 INFO m.TestNGListener [TestNGListener.java:25] test success: negative_UserDTOLombok_EmptyEmail
+2023-10-27 08:08:47,713 INFO t.BaseTests [BaseTests.java:66] stopped method: negative_UserDTOLombok_EmptyEmail, with parameters: [java.lang.reflect.Method arg0]
+2023-10-27 08:08:47,715 INFO t.BaseTests [BaseTests.java:59] __________________________________________________________________________
+2023-10-27 08:08:47,715 INFO t.BaseTests [BaseTests.java:60] started method: negative_UserDTOLombok_EmptyPassword with parameters: [java.lang.reflect.Method arg0]
+2023-10-27 08:08:47,717 INFO m.TestNGListener [TestNGListener.java:19] started test: negative_UserDTOLombok_EmptyPassword
+2023-10-27 08:08:47,717 INFO t.BaseTests [RegistrationTests.java:104] in method: negative_UserDTOLombok_EmptyPassword fill email input field with: dennis.koss@yahoo.com and password input field with:  and click button Login
+2023-10-27 08:08:47,718 INFO m.AppleManager [BaseHelper.java:26] findElementBy locator: By.xpath: //input[@name='email']
+2023-10-27 08:08:47,850 INFO m.AppleManager [BaseHelper.java:26] findElementBy locator: By.xpath: //input[@name='password']
+2023-10-27 08:08:47,966 INFO m.AppleManager [BaseHelper.java:26] findElementBy locator: By.xpath: //button[@name='registration']
+2023-10-27 08:08:48,522 INFO m.TestNGListener [TestNGListener.java:25] test success: negative_UserDTOLombok_EmptyPassword
+2023-10-27 08:08:48,537 INFO t.BaseTests [BaseTests.java:66] stopped method: negative_UserDTOLombok_EmptyPassword, with parameters: [java.lang.reflect.Method arg0]
+2023-10-27 08:08:48,539 INFO t.BaseTests [BaseTests.java:59] __________________________________________________________________________
+2023-10-27 08:08:48,540 INFO t.BaseTests [BaseTests.java:60] started method: negative_UserDTOLombok_WrongEmail with parameters: [java.lang.reflect.Method arg0]
+2023-10-27 08:08:48,541 INFO m.TestNGListener [TestNGListener.java:19] started test: negative_UserDTOLombok_WrongEmail
+2023-10-27 08:08:48,541 INFO t.BaseTests [RegistrationTests.java:59] in method: negative_UserDTOLombok_WrongEmail fill email input field with: abqduv.co.il and password input field with: Task$12345 and click button Login
+2023-10-27 08:08:48,542 INFO m.AppleManager [BaseHelper.java:26] findElementBy locator: By.xpath: //input[@name='email']
+2023-10-27 08:08:48,665 INFO m.AppleManager [BaseHelper.java:26] findElementBy locator: By.xpath: //input[@name='password']
+2023-10-27 08:08:48,787 INFO m.AppleManager [BaseHelper.java:26] findElementBy locator: By.xpath: //button[@name='registration']
+2023-10-27 08:08:49,343 INFO m.TestNGListener [TestNGListener.java:25] test success: negative_UserDTOLombok_WrongEmail
+2023-10-27 08:08:49,357 INFO t.BaseTests [BaseTests.java:66] stopped method: negative_UserDTOLombok_WrongEmail, with parameters: [java.lang.reflect.Method arg0]
+2023-10-27 08:08:49,359 INFO t.BaseTests [BaseTests.java:59] __________________________________________________________________________
+2023-10-27 08:08:49,360 INFO t.BaseTests [BaseTests.java:60] started method: negative_UserDTOLombok_WrongPassword with parameters: [java.lang.reflect.Method arg0]
+2023-10-27 08:08:49,360 INFO m.TestNGListener [TestNGListener.java:19] started test: negative_UserDTOLombok_WrongPassword
+2023-10-27 08:08:49,362 INFO t.BaseTests [RegistrationTests.java:89] in method: negative_UserDTOLombok_WrongPassword fill email input field with: garth.haag@gmail.com and password input field with: Test and click button Login
+2023-10-27 08:08:49,362 INFO m.AppleManager [BaseHelper.java:26] findElementBy locator: By.xpath: //input[@name='email']
+2023-10-27 08:08:49,515 INFO m.AppleManager [BaseHelper.java:26] findElementBy locator: By.xpath: //input[@name='password']
+2023-10-27 08:08:49,630 INFO m.AppleManager [BaseHelper.java:26] findElementBy locator: By.xpath: //button[@name='registration']
+2023-10-27 08:08:50,182 INFO m.TestNGListener [TestNGListener.java:25] test success: negative_UserDTOLombok_WrongPassword
+2023-10-27 08:08:50,197 INFO t.BaseTests [BaseTests.java:66] stopped method: negative_UserDTOLombok_WrongPassword, with parameters: [java.lang.reflect.Method arg0]
+2023-10-27 08:08:50,198 INFO t.BaseTests [BaseTests.java:59] __________________________________________________________________________
+2023-10-27 08:08:50,199 INFO t.BaseTests [BaseTests.java:60] started method: positive_UserDTOLombok_WFaker with parameters: [java.lang.reflect.Method arg0]
+2023-10-27 08:08:50,200 INFO m.TestNGListener [TestNGListener.java:19] started test: positive_UserDTOLombok_WFaker
+2023-10-27 08:08:50,200 INFO t.BaseTests [RegistrationTests.java:44] in method: positive_UserDTOLombok_WFaker fill email input field with: arthur.dibbert@gmail.com and password input field with: Task$12345 and click button Login
+2023-10-27 08:08:50,202 INFO m.AppleManager [BaseHelper.java:26] findElementBy locator: By.xpath: //input[@name='email']
+2023-10-27 08:08:50,348 INFO m.AppleManager [BaseHelper.java:26] findElementBy locator: By.xpath: //input[@name='password']
+2023-10-27 08:08:50,486 INFO m.AppleManager [BaseHelper.java:26] findElementBy locator: By.xpath: //button[@name='registration']
+2023-10-27 08:08:50,522 INFO m.AppleManager [BaseHelper.java:26] findElementBy locator: By.xpath: //a[@href='/contacts']
+2023-10-27 08:08:50,928 INFO m.TestNGListener [TestNGListener.java:25] test success: positive_UserDTOLombok_WFaker
+2023-10-27 08:08:50,928 INFO m.AppleManager [BaseHelper.java:26] findElementBy locator: By.tagName: button
+2023-10-27 08:08:50,980 INFO t.BaseTests [BaseTests.java:66] stopped method: positive_UserDTOLombok_WFaker, with parameters: [java.lang.reflect.Method arg0]
+2023-10-27 08:08:50,981 INFO m.TestNGListener [TestNGListener.java:67] all code executed: passed tests: [ResultMap map=[[TestResult name=negative_UserDTOLombok_WrongEmail status=SUCCESS method=LoginTests.negative_UserDTOLombok_WrongEmail(java.lang.reflect.Method)[pri:0, instance:tests.LoginTests@5e600dd5] output={null}], [TestResult name=negative_UserDTOLombok_EmptyPassword status=SUCCESS method=LoginTests.negative_UserDTOLombok_EmptyPassword(java.lang.reflect.Method)[pri:0, instance:tests.LoginTests@5e600dd5] output={null}], [TestResult name=negative_UserDTOLombok_EmptyEmail status=SUCCESS method=LoginTests.negative_UserDTOLombok_EmptyEmail(java.lang.reflect.Method)[pri:0, instance:tests.LoginTests@5e600dd5] output={null}], [TestResult name=positive_UserDTOLombok_WFaker status=SUCCESS method=RegistrationTests.positive_UserDTOLombok_WFaker(java.lang.reflect.Method)[pri:0, instance:tests.RegistrationTests@25641d39] output={null}], [TestResult name=positive_UserDTOLombok status=SUCCESS method=LoginTests.positive_UserDTOLombok(java.lang.reflect.Method)[pri:0, instance:tests.LoginTests@5e600dd5] output={null}], [TestResult name=negative_UserDTOLombok_WrongEmail status=SUCCESS method=RegistrationTests.negative_UserDTOLombok_WrongEmail(java.lang.reflect.Method)[pri:0, instance:tests.RegistrationTests@25641d39] output={null}], [TestResult name=negative_UserDTOLombok_EmptyPassword status=SUCCESS method=RegistrationTests.negative_UserDTOLombok_EmptyPassword(java.lang.reflect.Method)[pri:0, instance:tests.RegistrationTests@25641d39] output={null}], [TestResult name=negative_UserDTOLombok_EmptyEmail status=SUCCESS method=RegistrationTests.negative_UserDTOLombok_EmptyEmail(java.lang.reflect.Method)[pri:0, instance:tests.RegistrationTests@25641d39] output={null}], [TestResult name=positive_UserDTO status=SUCCESS method=LoginTests.positive_UserDTO(java.lang.reflect.Method)[pri:0, instance:tests.LoginTests@5e600dd5] output={null}], [TestResult name=positive_UserDTOWith status=SUCCESS method=LoginTests.positive_UserDTOWith(java.lang.reflect.Method)[pri:0, instance:tests.LoginTests@5e600dd5] output={null}], [TestResult name=negative_UserDTOLombok_WrongPassword status=SUCCESS method=RegistrationTests.negative_UserDTOLombok_WrongPassword(java.lang.reflect.Method)[pri:0, instance:tests.RegistrationTests@25641d39] output={null}], [TestResult name=negative_UserDTOLombok_WrongPassword status=SUCCESS method=LoginTests.negative_UserDTOLombok_WrongPassword(java.lang.reflect.Method)[pri:0, instance:tests.LoginTests@5e600dd5] output={null}]]]
+2023-10-27 08:08:50,982 INFO m.TestNGListener [TestNGListener.java:68] all code executed: failed tests: [ResultMap map=[]]
