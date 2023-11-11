@@ -7,6 +7,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.remote.BrowserType;
 import org.openqa.selenium.support.events.EventFiringWebDriver;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import utils.ConfigurationProperties;
@@ -16,19 +17,20 @@ import java.io.File;
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
-public class AppleManager {
+public class ApplicationManager {
 
     static EventFiringWebDriver driver;
-    UserHelper userHelper;
-    Logger logger = LoggerFactory.getLogger(AppleManager.class);
     static String browser;
+    UserHelper userHelper;
+    ContactHelper contactHelper;
+    Logger logger = LoggerFactory.getLogger(ApplicationManager.class);
 
-    public AppleManager() {
+    public ApplicationManager() {
 
         browser = System.getProperty("browser", BrowserType.CHROME);
     }
 
-    public void setUp() {
+    public void init() {
 
         if (browser.equals(BrowserType.CHROME)) {
 
@@ -45,11 +47,12 @@ public class AppleManager {
         logger.info("open: " + ConfigurationProperties.getProperty("url") + " Start testing: ");
 
         driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 
 //        driver.register(new WDListener());
 
         userHelper = new UserHelper(driver);
+        contactHelper = new ContactHelper(driver);
     }
 
     public void navigateToMainPage() {
@@ -57,29 +60,19 @@ public class AppleManager {
         driver.navigate().to("https://telranedu.web.app/home");
     }
 
-    public UserHelper getUserHelperToApply() {
+    public void refresh() {
+
+        driver.navigate().refresh();
+    }
+
+    public UserHelper getUserHelper() {
 
         return userHelper;
     }
 
-    public static String takeScreenshot(String filePath) {
+    public ContactHelper getContactHelper() {
 
-        TakesScreenshot screenshot = ((TakesScreenshot) driver);
-        File sourceFile = screenshot.getScreenshotAs(OutputType.FILE);
-        String currentDate = DatesUtils.getDateString();
-        File destinationFile = new File(filePath);
-
-        try {
-
-            Files.copy(sourceFile, destinationFile);
-
-        } catch (
-                IOException e) {
-
-            throw new RuntimeException(e);
-        }
-
-        return currentDate;
+        return contactHelper;
     }
 
     public void tearDown() {

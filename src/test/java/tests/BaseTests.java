@@ -1,15 +1,16 @@
 package tests;
 
+import com.github.javafaker.Faker;
+import dto.NewContactDto;
 import dto.UserDTO;
 import dto.UserDTOLombok;
 import dto.UserDTOWith;
-import manager.AppleManager;
+import manager.ApplicationManager;
 import manager.TestNGListener;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.testng.annotations.*;
 import utils.ConfigurationProperties;
-import utils.FakerGenerator;
 import utils.RandomGenerator;
 
 import java.lang.reflect.Method;
@@ -18,63 +19,53 @@ import java.util.Arrays;
 @Listeners(TestNGListener.class)
 public class BaseTests {
 
-    static AppleManager apple = new AppleManager();
+    static ApplicationManager app = new ApplicationManager();
     Logger logger = LoggerFactory.getLogger(BaseTests.class);
     RandomGenerator random = new RandomGenerator();
-    FakerGenerator faker = new FakerGenerator();
-    UserDTO userDTO;
-    UserDTOWith userDTOWith;
-    UserDTOLombok user;
+    Faker faker = new Faker();
 
-    boolean isFlagLogin = false, isFlagAlert = false;
+    UserDTO userDTO = new UserDTO(
+            ConfigurationProperties.getProperty("email"),
+            ConfigurationProperties.getProperty("password"));
 
-    @BeforeSuite (alwaysRun = true)
-    public void before() {
+    UserDTOWith userDTOWith = new UserDTOWith()
+            .withEmail(ConfigurationProperties.getProperty("email"))
+            .withPassword(ConfigurationProperties.getProperty("password"));
 
-        apple.setUp();
+    UserDTOLombok userDTOLombok = UserDTOLombok.builder()
+            .email(ConfigurationProperties.getProperty("email"))
+            .password(ConfigurationProperties.getProperty("password"))
+            .build();
+
+    boolean flagIsUserLogin = false, flagIsAlertPresent = false;
+
+    @BeforeSuite(alwaysRun = true)
+    public void setup() {
+
+        app.init();
     }
 
-    @AfterSuite (alwaysRun = true)
-    public void after() {
+    @AfterSuite(alwaysRun = true)
+    public void stop() {
 
-        apple.tearDown();
+        app.tearDown();
     }
 
-    @BeforeMethod (alwaysRun = true)
-    public void loggerBeforeMethod(Method method) {
-
-        userDTO = new UserDTO(
-                ConfigurationProperties.getProperty("email"),
-                ConfigurationProperties.getProperty("password"));
-
-        userDTOWith = new UserDTOWith()
-                .withEmail(ConfigurationProperties.getProperty("email"))
-                .withPassword(ConfigurationProperties.getProperty("password"));
-
-        user = UserDTOLombok.builder()
-                .email(ConfigurationProperties.getProperty("email"))
-                .password(ConfigurationProperties.getProperty("password"))
-                .build();
-
-        logger.info("__________________________________________________________________________");
-        logger.info("started method: " + method.getName() + " with parameters: " + Arrays.toString(method.getParameters()));
-    }
-
-    @AfterMethod (alwaysRun = true)
-    public void loggerAfterMethod(Method method) {
+    @AfterMethod(alwaysRun = true)
+    public void afterEachMethod(Method method) {
 
         logger.info("stopped method: " + method.getName() + ", with parameters: " + Arrays.toString(method.getParameters()));
     }
 
-    public void flagAfterMethod() {
+    public void preconditionForLoginAndRegTests() {
 
-        if (isFlagLogin) {
-            isFlagLogin = false;
-            apple.getUserHelperToApply().logout();
+        if (flagIsAlertPresent) {
+            flagIsAlertPresent = false;
+            app.getUserHelper().clickAcceptAlert(true);
         }
-        if (isFlagAlert) {
-            isFlagAlert = false;
-            apple.getUserHelperToApply().alertAccept(true);
+        if (flagIsUserLogin) {
+            flagIsUserLogin = false;
+            app.getUserHelper().logout();
         }
     }
 }

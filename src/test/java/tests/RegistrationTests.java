@@ -1,5 +1,7 @@
 package tests;
 
+import data.DataProviderLogin;
+import data.DataProviderRegistration;
 import dto.UserDTOLombok;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
@@ -19,36 +21,44 @@ public class RegistrationTests extends BaseTests {
 
         repetedLoggerText = " fill email input field with: %s and password input field with: %s and click button Login";
 
-        if (apple.isPageUrlHome())
-            apple.getUserHelperToApply().openLoginPage();
+        if (app.isPageUrlHome())
+            app.getUserHelper().openLoginPage();
     }
 
     @BeforeMethod (alwaysRun = true)
     public void beforeMethod() {
 
         user = UserDTOLombok.builder()
-                .email(faker.generateEmail_Faker())
-                .password(apple.getUserHelperToApply().password)
+                .email(faker.internet().emailAddress())
+                .password(app.getUserHelper().password)
                 .build();
     }
 
     @AfterMethod (alwaysRun = true)
-    public void afterMethod() {
+    public void preconditionsBeforeMethod() {
 
-        flagAfterMethod();
+        preconditionForLoginAndRegTests();
     }
 
-    @Test  (groups = { "smoke", "all" })
-    public void positive_UserDTOLombok_WFaker(Method method) {
+    @Test  (groups = { "smoke", "all" }, dataProvider = "data", dataProviderClass = DataProviderRegistration.class)
+    public void positiveRegistration(UserDTOLombok userDP, Method method) {
 
         logger.info(String.format("in method: " + method.getName()
-                + repetedLoggerText, user.getEmail(), user.getPassword()));
+                + repetedLoggerText, userDP.getEmail(), userDP.getPassword()));
 
-        apple.getUserHelperToApply().registration(user);
+        app.getUserHelper().fillRegUserDtoLombok(userDP);
 
-        isFlagLogin = true;
+        flagIsUserLogin = true;
 
-        Assert.assertTrue(apple.getUserHelperToApply().validationOfContactsButtonOnNavigationBar());
+        Assert.assertTrue(app.getUserHelper().validateContactTextDisplayMainMenu());
+    }
+
+    @Test
+    public void positiveRegistrationTest() {
+        app.getUserHelper().fillRegUserDtoLombok(user);
+
+        flagIsUserLogin = true;
+        Assert.assertTrue(app.getUserHelper().validateContactTextDisplayMainMenu());
     }
 
     @Test  (groups = { "regression", "all" })
@@ -59,55 +69,53 @@ public class RegistrationTests extends BaseTests {
         logger.info(String.format("in method: " + method.getName()
                 + repetedLoggerText, user.getEmail(), user.getPassword()));
 
-        apple.getUserHelperToApply().registration(user);
+        app.getUserHelper().fillRegUserDtoLombok(user);
 
-        isFlagAlert = true;
+        flagIsAlertPresent = true;
 
-        Assert.assertTrue(apple.getUserHelperToApply().validationOfAlertTextRegistraton());
+        Assert.assertTrue(app.getUserHelper().validateMessageAlertWrongEmailPasswordReg());
+    }
+
+    @Test (dataProvider = "data", dataProviderClass = DataProviderRegistration.class)
+    public void negativeRegNoSymbol(UserDTOLombok userDP, Method method) {
+
+        logger.info(String.format("in method: " + method.getName()
+                + repetedLoggerText, userDP.getEmail(), userDP.getPassword()));
+
+        app.getUserHelper().fillRegUserDtoLombok(userDP);
+
+        flagIsAlertPresent = true;
+
+        Assert.assertTrue(app.getUserHelper().validateMessageAlertWrongEmailPasswordReg());
     }
 
     @Test
-    public void negative_UserDTOLombok_EmptyEmail(Method method) {
+    public void negativeRegNoLetters(Method method) {
 
-        user.setEmail("");
+        user.setPassword("12345699#");
 
         logger.info(String.format("in method: " + method.getName()
                 + repetedLoggerText, user.getEmail(), user.getPassword()));
 
-        apple.getUserHelperToApply().registration(user);
+        app.getUserHelper().fillRegUserDtoLombok(user);
 
-        isFlagAlert = true;
+        flagIsAlertPresent = true;
 
-        Assert.assertTrue(apple.getUserHelperToApply().validationOfAlertTextRegistraton());
+        Assert.assertTrue(app.getUserHelper().validateMessageAlertWrongEmailPasswordReg());
     }
 
     @Test
-    public void negative_UserDTOLombok_WrongPassword(Method method) {
+    public void negativeRegNoDigits(Method method) {
 
-        user.setPassword("Test");
+        user.setPassword("Agshsjsks#");
 
         logger.info(String.format("in method: " + method.getName()
                 + repetedLoggerText, user.getEmail(), user.getPassword()));
 
-        apple.getUserHelperToApply().registration(user);
+        app.getUserHelper().fillRegUserDtoLombok(user);
 
-        isFlagAlert = true;
+        flagIsAlertPresent = true;
 
-        Assert.assertTrue(apple.getUserHelperToApply().validationOfAlertTextRegistraton());
-    }
-
-    @Test
-    public void negative_UserDTOLombok_EmptyPassword(Method method) {
-
-        user.setPassword("");
-
-        logger.info(String.format("in method: " + method.getName()
-                + repetedLoggerText, user.getEmail(), user.getPassword()));
-
-        apple.getUserHelperToApply().registration(user);
-
-        isFlagAlert = true;
-
-        Assert.assertTrue(apple.getUserHelperToApply().validationOfAlertTextRegistraton());
+        Assert.assertTrue(app.getUserHelper().validateMessageAlertWrongEmailPasswordReg());
     }
 }

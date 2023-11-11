@@ -1,9 +1,9 @@
 ./gradlew test
 ./gradlew clean test
-./gradlew clean loginTests
-./gradlew clean -Pbrowser=firefox loginTests
-./gradlew clean -Pbrowser=chrome loginTests
-./gradlew clean -Pbrowser=firefox -Dsuite=login shorttests
-./gradlew clean -Dgroups=smoke shorttests
-./gradlew clean -Dgroups=regression -Ptarget=fake shorttests
-./gradlew clean -Dgroups=regression -Ptarget=prod shorttests
+./gradlew clean -Dsuite=login phonebook
+./gradlew clean -Pbrowser=firefox -Dsuite=login phonebook
+./gradlew clean -Pbrowser=chrome -Dsuite=login phonebook
+./gradlew clean -Pbrowser=firefox -Dsuite=login phonebook
+./gradlew clean -Dgroups=smoke phonebook
+./gradlew clean -Dgroups=regression -Ptarget=fake phonebook
+./gradlew clean -Dgroups=regression -Ptarget=prod phonebook

@@ -8,7 +8,7 @@ public class DatesUtils {
     public static String getDateString() {
         Date currentDate = new Date();
         // for windows:
-        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd_HH-mm-ss");
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd_HH-mm-ss.SSS");
         // for mac we can use format: yyyy-MM-dd_HH:mm:ss
         return dateFormat.format(currentDate);
     }

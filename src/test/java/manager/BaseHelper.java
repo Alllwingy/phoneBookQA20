@@ -13,7 +13,7 @@ public class BaseHelper {
 
     WebDriver driver;
     public WebDriverWait wait;
-    Logger logger = LoggerFactory.getLogger(AppleManager.class);
+    Logger logger = LoggerFactory.getLogger(ApplicationManager.class);
 
 
     public BaseHelper(WebDriver driver) {
@@ -21,43 +21,43 @@ public class BaseHelper {
         this.driver = driver;
     }
 
-    private WebElement findElementBy(By locator) {
+    private WebElement findElementBase(By locator) {
 
         logger.info("findElementBy locator: " + locator);
         return driver.findElement(locator);
     }
 
-    private List<WebElement> findElementsBy(By locator) {
+    private List<WebElement> findElementsBase(By locator) {
 
         return driver.findElements(locator);
     }
 
     public WebElement getElement(By locator) {
 
-        return findElementBy(locator);
+        return findElementBase(locator);
     }
 
-    public void click_Mouse(By locatorAnd) {
+    public void clickBase(By locator) {
 
-        findElementBy(locatorAnd).click();
+        findElementBase(locator).click();
     }
 
     public void click_Action(By locator) {
 
         Actions action = new Actions(driver);
-        action.moveToElement(findElementBy(locator)).click().perform();
+        action.moveToElement(findElementBase(locator)).click().perform();
     }
 
     public void click_Action(By locator, int right, int down) {
 
-        Rectangle rectangle = findElementBy(locator).getRect();
+        Rectangle rectangle = findElementBase(locator).getRect();
         int x = rectangle.getX() + rectangle.getWidth() / right;
         int y = rectangle.getY() + rectangle.getHeight() / down;
 //        int x = rectangle.getX() + right;
 //        int y = rectangle.getY() + down;
 
         Actions action = new Actions(driver);
-        action.moveByOffset(x,y).click().perform();
+        action.moveByOffset(x, y).click().perform();
     }
 
     public void pause(int seconds) {
@@ -72,27 +72,32 @@ public class BaseHelper {
         }
     }
 
-    public void fill(By locator, String text) {
+    public void typeTextBase(By locator, String text) {
 
-        WebElement elementTo = findElementBy(locator);
-        elementTo.click();
-        elementTo.clear();
-        elementTo.sendKeys(text);
+        WebElement el = findElementBase(locator);
+        el.click();
+        el.clear();
+        el.sendKeys(text);
     }
 
-    public String getTextBy(By locator) {
+    public String getTextBase(By locator) {
 
-        return findElementBy(locator).getText().trim().toUpperCase();
+        return findElementBase(locator).getText().trim().toUpperCase();
     }
 
     public boolean isElementPresent(By locator) {
 
-        return !findElementsBy(locator).isEmpty();
+        return !findElementsBase(locator).isEmpty();
     }
 
-    public boolean isResultsEquals(By locator, String expectedResult) {
+    public void jsClickBase(String locator) {
 
-        String actualResult = getTextBy(locator);
+        ((JavascriptExecutor) driver).executeScript(locator);
+    }
+
+    public boolean isTextEqual(By locator, String expectedResult) {
+
+        String actualResult = getTextBase(locator);
         expectedResult = expectedResult.toUpperCase();
 
         if (expectedResult.equals(actualResult))
@@ -104,7 +109,7 @@ public class BaseHelper {
         }
     }
 
-    public boolean isTextContains(String actualResult, String expectedResult) {
+    public boolean isTextContainsGet2Strings(String actualResult, String expectedResult) {
 
         actualResult = actualResult.toUpperCase();
         expectedResult = expectedResult.toUpperCase();
@@ -118,7 +123,7 @@ public class BaseHelper {
         }
     }
 
-    public String alertGetText() {
+    public String getTextAlert() {
 
         wait = new WebDriverWait(driver, 10);
         Alert alert = wait.until(ExpectedConditions.alertIsPresent());
@@ -126,7 +131,7 @@ public class BaseHelper {
         return alert.getText().trim().toUpperCase();
     }
 
-    public void alertAccept(boolean accept) {
+    public void clickAcceptAlert(boolean accept) {
 
         wait = new WebDriverWait(driver, 10);
         wait.until(ExpectedConditions.alertIsPresent());
@@ -145,5 +150,22 @@ public class BaseHelper {
         Alert alert = wait.until(ExpectedConditions.alertIsPresent());
 
         alert.sendKeys(text);
+    }
+
+    public boolean isElementByTextExistsInTheList(By locator, String phone) {
+
+        List<WebElement> list = findElementsBase(locator);
+
+        if (list.isEmpty())
+            return false;
+
+        for (WebElement l : list) {
+
+            if (l.getText().equals(phone)) {
+                return true;
+            }
+        }
+
+        return false;
     }
 }

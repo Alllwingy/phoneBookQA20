@@ -14,12 +14,13 @@ public class ConfigurationProperties {
 
             initProperty();
         }
+
         return properties.getProperty(parameter);
     }
 
     private static void initProperty() {
 
-        String target = System.getProperty("target", "config");
+        String target = System.getProperty("target", "prod");
         String path = String.format("src\\test\\resources\\%s.properties", target);
 
         try (FileReader fileReader = new FileReader(path)) {

@@ -28,25 +28,26 @@ test {
     useTestNG()
 }
 
-task tests(type: Test) {
+tasks.register('phonebook', Test) {
     useTestNG() {
+        if (project.hasProperty('browser')) {
+            systemProperty 'browser', "${browser}"
+        }
+
         def suite = System.getProperty('suite', '')
         if (suite.equals('login')) {
             suites 'src/test/resources/login.xml'
         } else if (suite.equals('registration')) {
             suites 'src/test/resources/registration.xml'
-        } else if (suite.equals('all')){
+        } else if (suite.equals('all')) {
             suites 'src/test/resources/tests.xml'
         }
-        def groups = System.getProperty('groups', '')
-        if (groups.equals('two'))
-            groupe 'src/test/resources/shorttests.xml'
+
+        def groups = System.getProperty('groups')
         if (groups != null) {
             includeGroups groups
         }
-        if (project.hasProperty('browser')) {
-            systemProperty 'browser', "${browser}"
-        }
+
         if (project.hasProperty('target')) {
             systemProperty 'target', "${target}"
         }
